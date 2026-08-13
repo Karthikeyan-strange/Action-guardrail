@@ -1,0 +1,31 @@
+rules:
+
+  - name: block_large_delete
+    tool: database
+    operation: delete
+    condition:
+      parameter: record_count
+      operator: greater_than
+      value: 100
+    action: block
+    reason: "Database delete exceeds 100 records"
+
+  - name: external_email_hitl
+    tool: email
+    operation: send
+    condition:
+      parameter: domain_type
+      operator: equals
+      value: external
+    action: require_hitl
+    reason: "External email requires human approval"
+
+  - name: confidential_read
+    tool: file
+    operation: read
+    condition:
+      parameter: path
+      operator: contains
+      value: confidential
+    action: log_and_allow
+    reason: "Confidential file access recorded"
