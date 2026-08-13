@@ -1,16 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "env": {
-    "VITE_API_BASE_URL": "@api-base-url"
-  },
-  "envs": {
-    "production": {
-      "VITE_API_BASE_URL": "https://your-render-app-name.onrender.com"
-    },
-    "preview": {
-      "VITE_API_BASE_URL": "https://your-render-app-name.onrender.com"
-    }
-  }
+  "framework": "vite"
 }
